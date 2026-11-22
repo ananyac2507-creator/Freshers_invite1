@@ -1,0 +1,1819 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freshers' Party Invite for Kartik Sir ✨💖</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Dancing Script (charming cursive) & Quicksand (soft rounded body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================================
+       BASE & DREAMY PASTEL ANIMATED BACKGROUND
+    ===================================================================== */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      overflow-x: hidden;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdce8 0%, #fff5e8 48%, #efe2ff 100%);
+      background-size: 220% 220%;
+      animation: gradientShift 15s ease infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .font-cursive {
+      font-family: 'Dancing Script', cursive;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Ambient Floating Hearts & Sparkles */
+    .floating-item {
+      position: fixed;
+      bottom: -44px;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      opacity: 0;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      15% { opacity: 0.52; }
+      82% { opacity: 0.42; }
+      100% {
+        transform: translateY(-114vh) translateX(26px) rotate(24deg) scale(1.12);
+        opacity: 0;
+      }
+    }
+
+    /* =====================================================================
+       GLASSMORPHIC CARD
+    ===================================================================== */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.94);
+      box-shadow:
+        0 22px 55px -14px rgba(244, 114, 182, 0.3),
+        0 0 34px rgba(251, 207, 232, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.95);
+    }
+
+    /* =====================================================================
+       KAWAII BUNNY ANIMATIONS
+    ===================================================================== */
+    @keyframes gentleBob {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes excitedWiggle {
+      0%, 100% { transform: translateY(0px) rotate(0deg) scale(1.03); }
+      25% { transform: translateY(-5px) rotate(-3deg) scale(1.06); }
+      75% { transform: translateY(-5px) rotate(3deg) scale(1.06); }
+    }
+
+    @keyframes excitedJump {
+      0%, 100% { transform: translateY(0px) scale(1, 1); }
+      35% { transform: translateY(-14px) scale(0.96, 1.07); }
+      65% { transform: translateY(-2px) scale(1.05, 0.95); }
+    }
+
+    @keyframes happyBounce {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      40% { transform: translateY(-10px) scale(1.06); }
+      70% { transform: translateY(-3px) scale(0.98); }
+    }
+
+    @keyframes subtleShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px) rotate(-1.5deg); }
+      75% { transform: translateX(4px) rotate(1.5deg); }
+    }
+
+    .bunny-idle { animation: gentleBob 3.2s ease-in-out infinite; }
+    .bunny-excited { animation: excitedWiggle 0.95s ease-in-out infinite; }
+    .bunny-jumping { animation: excitedJump 0.68s ease-in-out infinite; }
+    .bunny-ecstatic { animation: happyBounce 1.15s ease-in-out infinite; }
+    .bunny-shake { animation: subtleShake 0.35s ease-in-out; }
+
+    /* =====================================================================
+       PLAYFUL FLOATING TOAST ("too late to back out now! 🤭💨")
+    ===================================================================== */
+    #shooToast {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(-24px) scale(0.9);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 70;
+      transition: opacity 0.3s ease, transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    #shooToast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    /* =====================================================================
+       4-HEART PROGRESS INDICATOR (BELOW YES BUTTON)
+    ===================================================================== */
+    .heart-pip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+    }
+
+    .heart-pip.filled {
+      animation: heartFillPop 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes heartFillPop {
+      0% { transform: scale(0.55) rotate(-12deg); }
+      55% { transform: scale(1.42) rotate(8deg); }
+      100% { transform: scale(1.15) rotate(0deg); }
+    }
+
+    /* =====================================================================
+       CREATIVE "YES" BUTTON: MAGNETIC WRAPPER, SHIMMER, HEARTBEAT, CROWN & PILL
+    ===================================================================== */
+    #yesMagneticWrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 25;
+      transform: translate3d(var(--mag-x, 0px), var(--mag-y, 0px), 0)
+                 rotate(var(--mag-rot, 0deg))
+                 scale(var(--yes-scale, 1));
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    #yesHalo {
+      position: absolute;
+      inset: -8px;
+      border-radius: 9999px;
+      background: conic-gradient(
+        from 0deg,
+        rgba(244, 114, 182, 0.68),
+        rgba(251, 191, 36, 0.58),
+        rgba(192, 132, 252, 0.68),
+        rgba(251, 113, 133, 0.72),
+        rgba(244, 114, 182, 0.68)
+      );
+      filter: blur(12px);
+      opacity: 0.35;
+      z-index: -1;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      animation: haloSpin 6s linear infinite;
+      pointer-events: none;
+    }
+
+    #yesMagneticWrap:hover #yesHalo,
+    #yesMagneticWrap.halo-boost #yesHalo {
+      opacity: 0.9;
+      transform: scale(1.14);
+    }
+
+    @keyframes haloSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #yesBtn {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f472b6 0%, #fb7185 52%, #ec4899 100%);
+      box-shadow:
+        0 10px 26px -5px rgba(244, 63, 94, 0.55),
+        inset 0 1px 1px rgba(255, 255, 255, 0.55);
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.35s ease,
+                  background 0.45s ease;
+      animation: gentleHeartbeat 2.6s ease-in-out infinite;
+    }
+
+    /* Upgraded Rose-Gold / Pink Glow Tiers */
+    #yesBtn.level-mid {
+      background: linear-gradient(135deg, #f472b6 0%, #fb7185 40%, #f59e0b 100%);
+      animation-duration: 2.1s;
+    }
+
+    #yesBtn.level-max {
+      background: linear-gradient(135deg, #ec4899 0%, #f43f5e 42%, #fbbf24 100%);
+      animation-duration: 1.55s;
+    }
+
+    #yesBtn.rose-gold-pulse {
+      background: linear-gradient(135deg, #f43f5e 0%, #fb7185 35%, #fbbf24 72%, #f472b6 100%);
+      background-size: 200% 200%;
+      animation: roseGoldGlow 1.5s ease-in-out infinite !important;
+      box-shadow:
+        0 14px 34px -4px rgba(244, 63, 94, 0.72),
+        0 0 26px rgba(251, 191, 36, 0.65),
+        inset 0 1px 2px rgba(255, 255, 255, 0.75);
+    }
+
+    @keyframes roseGoldGlow {
+      0%, 100% { background-position: 0% 50%; transform: scale(1); }
+      50% { background-position: 100% 50%; transform: scale(1.06); }
+    }
+
+    /* Glossy Holographic Shimmer Sweep */
+    #yesBtn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -130%;
+      width: 65%;
+      height: 200%;
+      background: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.55) 48%,
+        rgba(255, 240, 246, 0.16) 60%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-22deg);
+      animation: holoShimmer 3.1s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes holoShimmer {
+      0%, 28% { left: -130%; }
+      68%, 100% { left: 165%; }
+    }
+
+    @keyframes gentleHeartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.045); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.03); }
+      56% { transform: scale(1); }
+    }
+
+    /* Bouncy Pop Morph (Step 1) */
+    #yesBtn.bouncy-pop {
+      animation: bouncyPopAnim 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+
+    @keyframes bouncyPopAnim {
+      0% { transform: scale(0.84); }
+      45% { transform: scale(1.14); }
+      75% { transform: scale(0.96); }
+      100% { transform: scale(1); }
+    }
+
+    /* Playful Jiggle (Step 2) */
+    #yesBtn.playful-jiggle {
+      animation: jiggleAnim 0.5s ease-in-out !important;
+    }
+
+    @keyframes jiggleAnim {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      20% { transform: rotate(-6deg) scale(1.08); }
+      40% { transform: rotate(6deg) scale(1.1); }
+      60% { transform: rotate(-4deg) scale(1.06); }
+      80% { transform: rotate(3deg) scale(1.02); }
+    }
+
+    /* Tactile Squishy Press Animation (Finale) */
+    #yesBtn.squish-press {
+      animation: squishyPop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+    }
+
+    @keyframes squishyPop {
+      0% { transform: scale(1, 1); }
+      30% { transform: scale(1.18, 0.8); }
+      65% { transform: scale(0.92, 1.14); }
+      100% { transform: scale(1.08, 1.08); }
+    }
+
+    /* Celebratory Absorb Pulse when No merges into Yes */
+    #yesBtn.absorb-shimmer {
+      animation: yesAbsorbPulse 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+
+    @keyframes yesAbsorbPulse {
+      0% { transform: scale(1); filter: brightness(1); }
+      40% { transform: scale(1.22); filter: brightness(1.22); }
+      72% { transform: scale(0.95); filter: brightness(1.05); }
+      100% { transform: scale(1); filter: brightness(1); }
+    }
+
+    /* Unlockable Floating Crown above Yes Button */
+    #yesCrown {
+      position: absolute;
+      top: -22px;
+      right: 6px;
+      font-size: 1.35rem;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(8px) scale(0.3) rotate(-14deg);
+      transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+      filter: drop-shadow(0 3px 6px rgba(245, 158, 11, 0.45));
+    }
+
+    #yesCrown.unlocked {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(10deg);
+      animation: crownFloat 2.4s ease-in-out infinite 0.55s;
+    }
+
+    @keyframes crownFloat {
+      0%, 100% { transform: translateY(0px) rotate(10deg); }
+      50% { transform: translateY(-5px) rotate(16deg); }
+    }
+
+    /* Cute Floating Speech Pill / Mini-Tooltip above Yes Button */
+    #yesSpeechPill {
+      position: absolute;
+      bottom: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px) scale(0.82);
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 40;
+    }
+
+    #yesSpeechPill.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+      animation: pillBob 1.7s ease-in-out infinite 0.3s;
+    }
+
+    @keyframes pillBob {
+      0%, 100% { transform: translateX(-50%) translateY(0px); }
+      50% { transform: translateX(-50%) translateY(-4px); }
+    }
+
+    #yesSpeechPill::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px 6px 0 6px;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.96) transparent transparent transparent;
+    }
+
+    /* =====================================================================
+       "NO" BUTTON DODGING, SHOOING & MERGING TRANSITIONS
+    ===================================================================== */
+    #noBtn {
+      transition: left 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+                  top 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  opacity 0.35s ease,
+                  background-color 0.25s ease;
+      touch-action: manipulation;
+    }
+
+    #noBtn.merging {
+      transition: left 0.6s cubic-bezier(0.6, -0.28, 0.735, 0.045),
+                  top 0.6s cubic-bezier(0.6, -0.28, 0.735, 0.045),
+                  transform 0.6s ease-in,
+                  opacity 0.54s ease-in;
+      pointer-events: none;
+    }
+
+    #noBtn.shooed {
+      transition: transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045), opacity 0.45s ease;
+      transform: translate(110px, -60px) rotate(28deg) scale(0.2) !important;
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+
+    /* =====================================================================
+       BURST PARTICLES, HOVER SPARKLES & SHOCKWAVE RING
+    ===================================================================== */
+    .burst-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 60;
+      font-size: 1.15rem;
+      animation: burstOut 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes burstOut {
+      0% {
+        transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+        opacity: 1;
+      }
+      70% { opacity: 1; }
+      100% {
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.25) rotate(var(--rot));
+        opacity: 0;
+      }
+    }
+
+    .orbit-sparkle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 55;
+      font-size: 0.9rem;
+      animation: sparkleDrift 0.95s ease-out forwards;
+    }
+
+    @keyframes sparkleDrift {
+      0% {
+        transform: translate(-50%, -50%) scale(0.35) rotate(0deg);
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--sx)), calc(-50% + var(--sy))) scale(1.1) rotate(35deg);
+        opacity: 0;
+      }
+    }
+
+    /* Expanding Pastel Shockwave Ring on Yes Click */
+    .shockwave-ring {
+      position: fixed;
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 58;
+      border: 3px solid rgba(244, 114, 182, 0.85);
+      box-shadow: 0 0 22px rgba(251, 113, 133, 0.55);
+      transform: translate(-50%, -50%) scale(0.25);
+      animation: shockwaveExpand 0.68s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .shockwave-ring.grand {
+      border-color: rgba(244, 63, 94, 0.92);
+      box-shadow: 0 0 36px rgba(251, 191, 36, 0.7);
+      animation: grandShockwaveExpand 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes shockwaveExpand {
+      0% { width: 40px; height: 40px; opacity: 0.95; border-width: 4px; }
+      100% { width: 250px; height: 250px; opacity: 0; border-width: 1px; }
+    }
+
+    @keyframes grandShockwaveExpand {
+      0% { width: 44px; height: 44px; opacity: 1; border-width: 6px; }
+      100% { width: 420px; height: 420px; opacity: 0; border-width: 1px; }
+    }
+
+    /* =====================================================================
+       VIP DATE PASS TICKET, STAMP & CELEBRATION FADE-IN
+    ===================================================================== */
+    .date-ticket {
+      position: relative;
+      background: linear-gradient(135deg, #fff5f8 0%, #fffaf2 52%, #f7f0ff 100%);
+      border: 2px dashed #f472b6;
+      box-shadow: 0 12px 28px -8px rgba(244, 114, 182, 0.25);
+    }
+
+    .ticket-notch-left,
+    .ticket-notch-right {
+      position: absolute;
+      top: 50%;
+      width: 22px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 9999px;
+      transform: translateY(-50%);
+      border: 2px dashed #f472b6;
+    }
+
+    .ticket-notch-left {
+      left: -13px;
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .ticket-notch-right {
+      right: -13px;
+      clip-path: inset(0 50% 0 0);
+    }
+
+    /* Cute Verified Stamp on the Date Pass */
+    .verified-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      border: 2px solid #f43f5e;
+      color: #e11d48;
+      background: rgba(255, 241, 242, 0.92);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      transform: rotate(-4deg);
+      box-shadow: 0 4px 10px -2px rgba(244, 63, 94, 0.25);
+      animation: stampSlam 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s both;
+    }
+
+    @keyframes stampSlam {
+      0% { opacity: 0; transform: scale(2.1) rotate(-14deg); }
+      70% { opacity: 1; transform: scale(0.92) rotate(-3deg); }
+      100% { opacity: 1; transform: scale(1) rotate(-4deg); }
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .animate-pop-in {
+      animation: popIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center p-4 sm:p-6 relative selection:bg-pink-200 selection:text-pink-900">
+
+  <!-- Background Floating Hearts & Sparkles -->
+  <div id="bgFloaters" aria-hidden="true"></div>
+
+  <!-- Playful Floating Toast when No Button Gets Shooed Away -->
+  <div
+    id="shooToast"
+    role="status"
+    aria-live="polite"
+    class="px-4 py-2 rounded-full bg-white/95 border border-pink-200 text-rose-500 text-xs sm:text-sm font-bold shadow-lg whitespace-nowrap"
+  >
+    too late to back out now! 🤭💨
+  </div>
+
+  <!-- Full-Screen Celebration Confetti & Hearts Canvas -->
+  <canvas id="celebrationCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-50"></canvas>
+
+  <!-- Main Centered Glassmorphic Card -->
+  <main id="mainCard" class="glass-card relative z-10 w-full max-w-md rounded-[2rem] p-6 sm:p-8 text-center transition-all duration-500">
+
+    <!-- ==================== PROMPT VIEW ==================== -->
+    <section id="promptView" class="flex flex-col items-center">
+
+      <!-- Top Aesthetic Pill Badge -->
+      <div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-100 via-rose-50 to-purple-100 border border-pink-200/80 text-pink-600 text-xs sm:text-sm font-bold tracking-wide shadow-sm mb-3">
+        <span>💌 Freshers' Party Special Invite 💌</span>
+      </div>
+
+      <!-- Custom Reactive Inline SVG Kawaii Bunny -->
+      <div id="bunnyWrapper" class="w-36 h-36 sm:w-40 sm:h-40 mb-2 bunny-idle flex items-center justify-center">
+        <svg id="kawaiiBunny" viewBox="0 0 200 200" class="w-full h-full drop-shadow-md" aria-label="Cute reactive kawaii bunny">
+          <!-- Soft pastel halo behind bunny -->
+          <circle cx="100" cy="112" r="70" fill="#ffe4ef" opacity="0.65" />
+
+          <!-- Floating Sparkle Aura (visible on Yes hover, Yes steps & ecstatic celebration) -->
+          <g id="expr-hearts-aura" class="hidden">
+            <path d="M35 65 C35 58, 25 58, 25 65 C25 71, 35 77, 35 77 C35 77, 45 71, 45 65 C45 58, 35 58, 35 65 Z" fill="#fb7185" />
+            <path d="M168 58 C168 52, 160 52, 160 58 C160 63, 168 68, 168 68 C168 68, 176 63, 176 58 C176 52, 168 52, 168 58 Z" fill="#f472b6" />
+            <circle cx="48" cy="40" r="3.8" fill="#fbbf24" />
+            <circle cx="155" cy="36" r="3.2" fill="#c084fc" />
+            <path d="M160 95 L163 88 L166 95 L173 98 L166 101 L163 108 L160 101 L153 98 Z" fill="#fbbf24" />
+          </g>
+
+          <!-- Left Ear -->
+          <g transform="rotate(-10 72 58)">
+            <ellipse cx="72" cy="52" rx="16" ry="38" fill="#ffffff" stroke="#f9a8d4" stroke-width="3.5" />
+            <ellipse cx="72" cy="55" rx="8.5" ry="25" fill="#fbcfe8" />
+          </g>
+          <!-- Right Ear -->
+          <g transform="rotate(10 128 58)">
+            <ellipse cx="128" cy="52" rx="16" ry="38" fill="#ffffff" stroke="#f9a8d4" stroke-width="3.5" />
+            <ellipse cx="128" cy="55" rx="8.5" ry="25" fill="#fbcfe8" />
+          </g>
+
+          <!-- Chubby Bunny Body & Head -->
+          <ellipse cx="100" cy="122" rx="58" ry="50" fill="#ffffff" stroke="#f9a8d4" stroke-width="3.5" />
+
+          <!-- Standard Rosy Cheeks -->
+          <g id="normalCheeks">
+            <ellipse id="cheekLeft" cx="64" cy="122" rx="10" ry="6" fill="#fda4af" opacity="0.65" />
+            <ellipse id="cheekRight" cx="136" cy="122" rx="10" ry="6" fill="#fda4af" opacity="0.65" />
+          </g>
+
+          <!-- Heart-Shaped Cheeks (Visible when hovering Yes or Jumping!) -->
+          <g id="heartCheeks" class="hidden">
+            <path d="M64 120 C64 116, 57 116, 57 120 C57 124, 64 128, 64 128 C64 128, 71 124, 71 120 C71 116, 64 116, 64 120 Z" fill="#fb7185" opacity="0.88" />
+            <path d="M136 120 C136 116, 129 116, 129 120 C129 124, 136 128, 136 128 C136 128, 143 124, 143 120 C143 116, 136 116, 136 120 Z" fill="#fb7185" opacity="0.88" />
+          </g>
+
+          <!-- EXPRESSION 1: HAPPY (Default) -->
+          <g id="expr-happy">
+            <circle cx="77" cy="108" r="6" fill="#4a2c3a" />
+            <circle cx="75" cy="106" r="2.2" fill="#ffffff" />
+            <circle cx="123" cy="108" r="6" fill="#4a2c3a" />
+            <circle cx="121" cy="106" r="2.2" fill="#ffffff" />
+            <path d="M92 118 Q96 123 100 118 Q104 123 108 118" fill="none" stroke="#4a2c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+
+          <!-- EXPRESSION 2: EXCITED SPARKLING (Hovering Yes!) -->
+          <g id="expr-excited" class="hidden">
+            <circle cx="77" cy="107" r="7.5" fill="#4a2c3a" />
+            <path d="M77 101 L78.8 105.2 L83 107 L78.8 108.8 L77 113 L75.2 108.8 L71 107 L75.2 105.2 Z" fill="#fef08a" />
+            <circle cx="123" cy="107" r="7.5" fill="#4a2c3a" />
+            <path d="M123 101 L124.8 105.2 L129 107 L124.8 108.8 L123 113 L121.2 108.8 L117 107 L121.2 105.2 Z" fill="#fef08a" />
+            <path d="M91 119 Q100 129 109 119" fill="#fda4af" stroke="#4a2c3a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+
+          <!-- EXPRESSION 3: SURPRISED (No Attempts 1-3) -->
+          <g id="expr-surprised" class="hidden">
+            <path d="M68 95 Q76 90 84 95" fill="none" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M116 95 Q124 90 132 95" fill="none" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="77" cy="109" r="7" fill="#4a2c3a" />
+            <circle cx="74.5" cy="106.5" r="2.6" fill="#ffffff" />
+            <circle cx="123" cy="109" r="7" fill="#4a2c3a" />
+            <circle cx="120.5" cy="106.5" r="2.6" fill="#ffffff" />
+            <ellipse cx="100" cy="121" rx="4.5" ry="5.5" fill="#fb7185" stroke="#4a2c3a" stroke-width="2.5" />
+          </g>
+
+          <!-- EXPRESSION 4: PUPPY EYES (No Attempts 4-8) -->
+          <g id="expr-puppy" class="hidden">
+            <path d="M67 98 Q75 96 83 92" fill="none" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M133 98 Q125 96 117 92" fill="none" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="76" cy="110" r="8.5" fill="#4a2c3a" />
+            <circle cx="73" cy="106.5" r="3.2" fill="#ffffff" />
+            <circle cx="79" cy="113" r="1.6" fill="#ffffff" />
+            <circle cx="124" cy="110" r="8.5" fill="#4a2c3a" />
+            <circle cx="121" cy="106.5" r="3.2" fill="#ffffff" />
+            <circle cx="127" cy="113" r="1.6" fill="#ffffff" />
+            <path d="M94 123 Q100 119 106 123" fill="none" stroke="#4a2c3a" stroke-width="2.8" stroke-linecap="round" />
+          </g>
+
+          <!-- EXPRESSION 5: DRAMATIC PLEADING TEARS (No Attempts 9-14) -->
+          <g id="expr-pleading" class="hidden">
+            <path d="M66 99 L83 91" fill="none" stroke="#f472b6" stroke-width="2.8" stroke-linecap="round" />
+            <path d="M134 99 L117 91" fill="none" stroke="#f472b6" stroke-width="2.8" stroke-linecap="round" />
+            <circle cx="76" cy="110" r="9.5" fill="#4a2c3a" />
+            <circle cx="72.5" cy="106" r="3.8" fill="#ffffff" />
+            <circle cx="79.5" cy="114" r="2" fill="#bae6fd" />
+            <circle cx="124" cy="110" r="9.5" fill="#4a2c3a" />
+            <circle cx="120.5" cy="106" r="3.8" fill="#ffffff" />
+            <circle cx="127.5" cy="114" r="2" fill="#bae6fd" />
+            <path d="M64 117 Q60 123 64 125 Q68 123 64 117 Z" fill="#7dd3fc" />
+            <path d="M136 117 Q132 123 136 125 Q140 123 136 117 Z" fill="#7dd3fc" />
+            <path d="M92 124 Q96 120 100 124 Q104 120 108 124" fill="none" stroke="#4a2c3a" stroke-width="2.8" stroke-linecap="round" />
+          </g>
+
+          <!-- EXPRESSION 6: FLUSTERED DEEP BLUSH (Yes Click 1: "Wait, really?! 😳") -->
+          <g id="expr-flustered" class="hidden">
+            <path d="M67 94 Q75 88 83 93" fill="none" stroke="#f472b6" stroke-width="2.6" stroke-linecap="round" />
+            <path d="M117 93 Q125 88 133 94" fill="none" stroke="#f472b6" stroke-width="2.6" stroke-linecap="round" />
+            <circle cx="77" cy="108" r="7.5" fill="#4a2c3a" />
+            <circle cx="74.5" cy="105.5" r="2.8" fill="#ffffff" />
+            <circle cx="80" cy="111" r="1.4" fill="#ffffff" />
+            <circle cx="123" cy="108" r="7.5" fill="#4a2c3a" />
+            <circle cx="120.5" cy="105.5" r="2.8" fill="#ffffff" />
+            <circle cx="126" cy="111" r="1.4" fill="#ffffff" />
+            <!-- Deep rosy blush streaks -->
+            <ellipse cx="62" cy="122" rx="13" ry="7.5" fill="#fb7185" opacity="0.72" />
+            <ellipse cx="138" cy="122" rx="13" ry="7.5" fill="#fb7185" opacity="0.72" />
+            <path d="M55 124 L59 119 M61 124 L65 119 M67 124 L71 119" stroke="#e11d48" stroke-width="1.8" stroke-linecap="round" opacity="0.7" />
+            <path d="M129 124 L133 119 M135 124 L139 119 M141 124 L145 119" stroke="#e11d48" stroke-width="1.8" stroke-linecap="round" opacity="0.7" />
+            <!-- Flustered tiny 'o' mouth -->
+            <ellipse cx="100" cy="122" rx="4.2" ry="5" fill="#fda4af" stroke="#4a2c3a" stroke-width="2.4" />
+          </g>
+
+          <!-- EXPRESSION 7: STARRY EYES (Yes Click 2: "Pinky promise? 🤙✨") -->
+          <g id="expr-starry" class="hidden">
+            <circle cx="77" cy="108" r="8.8" fill="#4a2c3a" />
+            <path d="M77 100.5 L79.2 105.8 L84.5 108 L79.2 110.2 L77 115.5 L74.8 110.2 L69.5 108 L74.8 105.8 Z" fill="#fef08a" />
+            <circle cx="123" cy="108" r="8.8" fill="#4a2c3a" />
+            <path d="M123 100.5 L125.2 105.8 L130.5 108 L125.2 110.2 L123 115.5 L120.8 110.2 L115.5 108 L120.8 105.8 Z" fill="#fef08a" />
+            <path d="M91 120 Q96 126 100 121 Q104 126 109 120" fill="none" stroke="#4a2c3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+
+          <!-- EXPRESSION 8: JUMPING EXCITED (Yes Click 3: "Lock it in, Kartik Sir! 💘") -->
+          <g id="expr-jumping" class="hidden">
+            <path d="M68 110 Q77 98 86 110" fill="none" stroke="#4a2c3a" stroke-width="3.6" stroke-linecap="round" />
+            <path d="M114 110 Q123 98 132 110" fill="none" stroke="#4a2c3a" stroke-width="3.6" stroke-linecap="round" />
+            <path d="M89 119 Q100 133 111 119 Z" fill="#fb7185" stroke="#4a2c3a" stroke-width="2.6" stroke-linejoin="round" />
+            <path d="M150 92 L152 86 L154 92 L160 94 L154 96 L152 102 L150 96 L144 94 Z" fill="#fbbf24" />
+          </g>
+
+          <!-- EXPRESSION 9: ECSTATIC HEART EYES (Click 4 Grand Finale) -->
+          <g id="expr-ecstatic" class="hidden">
+            <path d="M77 107 C77 101, 67 101, 67 107 C67 113, 77 119, 77 119 C77 119, 87 113, 87 107 C87 101, 77 101, 77 107 Z" fill="#f43f5e" />
+            <path d="M123 107 C123 101, 113 101, 113 107 C113 113, 123 119, 123 119 C123 119, 133 113, 133 107 C133 101, 123 101, 123 107 Z" fill="#f43f5e" />
+            <path d="M90 121 Q100 133 110 121 Z" fill="#fb7185" stroke="#4a2c3a" stroke-width="2.6" stroke-linejoin="round" />
+          </g>
+
+          <!-- Bunny Paws Holding a Heart -->
+          <path d="M100 144 C100 135, 85 135, 85 144 C85 153, 100 163, 100 163 C100 163, 115 153, 115 144 C115 135, 100 135, 100 144 Z" fill="#fb7185" stroke="#ffffff" stroke-width="2" />
+          <ellipse cx="82" cy="148" rx="9" ry="7" fill="#ffffff" stroke="#f9a8d4" stroke-width="3" transform="rotate(-20 82 148)" />
+          <ellipse cx="118" cy="148" rx="9" ry="7" fill="#ffffff" stroke="#f9a8d4" stroke-width="3" transform="rotate(20 118 148)" />
+        </svg>
+      </div>
+
+      <!-- Main Charming Header -->
+      <h1 id="mainHeading" class="font-cursive text-4xl sm:text-[2.65rem] text-rose-500 leading-tight drop-shadow-sm px-1 mb-2.5 transition-all duration-300">
+        Will you be my Freshers' Party date, Kartik Sir? ✨
+      </h1>
+
+      <!-- Dynamic Playful Subtitle -->
+      <p id="subtitleText" class="text-rose-900/75 text-sm sm:text-base font-semibold min-h-[2.75rem] flex items-center justify-center px-2 mb-6 transition-all duration-300">
+        I promise unlimited hype, great music &amp; the best company 💖
+      </p>
+
+      <!-- Action Buttons Container -->
+      <div id="buttonContainer" class="flex flex-wrap items-center justify-center gap-4 w-full min-h-[4.75rem] relative">
+
+        <!-- Creative Magnetic YES Button Wrapper -->
+        <div id="yesMagneticWrap">
+          <!-- Orbiting Pastel Glow Halo -->
+          <div id="yesHalo" aria-hidden="true"></div>
+
+          <!-- Floating Speech Pill / Mini-Tooltip -->
+          <div
+            id="yesSpeechPill"
+            class="px-3.5 py-1.5 rounded-full bg-white/95 border border-pink-200 text-rose-500 text-xs font-bold shadow-md"
+          >
+            good choice, sir! 🥹
+          </div>
+
+          <!-- Unlockable Floating Crown (Appears after 5 No attempts or on Step 4) -->
+          <span id="yesCrown" aria-hidden="true">👑</span>
+
+          <!-- Interactive Yes Button -->
+          <button
+            id="yesBtn"
+            type="button"
+            class="relative px-8 py-3.5 rounded-full text-white font-bold text-lg focus:outline-none focus:ring-4 focus:ring-pink-300/60 cursor-pointer select-none whitespace-nowrap"
+          >
+            <span id="yesBtnText">Yes! 💖</span>
+          </button>
+        </div>
+
+        <!-- Dodging & Shrinking NO Button -->
+        <button
+          id="noBtn"
+          type="button"
+          class="z-30 px-6 py-3 rounded-full bg-white/85 hover:bg-pink-50 text-rose-500 border-2 border-pink-200 font-bold text-base shadow-sm active:scale-95 focus:outline-none cursor-pointer select-none whitespace-nowrap"
+        >
+          No
+        </button>
+      </div>
+
+      <!-- 4-Heart Confirmation Progress Indicator (Revealed right below the button after Click 1) -->
+      <div id="heartMeterWrap" class="hidden flex-col items-center gap-1.5 mt-5 animate-pop-in">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/85 border border-pink-200/90 shadow-sm">
+          <span id="heartPip1" class="heart-pip">🤍</span>
+          <span id="heartPip2" class="heart-pip">🤍</span>
+          <span id="heartPip3" class="heart-pip">🤍</span>
+          <span id="heartPip4" class="heart-pip">🤍</span>
+        </div>
+        <p id="heartMeterCaption" class="text-[11px] font-bold text-rose-400 tracking-wide">
+          Confirmation Meter: 1 / 4 💖
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== CELEBRATION VIEW ==================== -->
+    <section id="celebrationView" class="hidden flex-col items-center animate-pop-in">
+      <!-- Top Celebration Badge -->
+      <div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-rose-100 via-pink-100 to-amber-100 border border-pink-200 text-rose-600 text-xs sm:text-sm font-bold tracking-wide shadow-sm mb-3">
+        <span>🎉 Best Senior Move Ever 🎉</span>
+      </div>
+
+      <!-- Ecstatic Bunny Slot -->
+      <div id="celebrationBunnySlot" class="w-36 h-36 sm:w-40 sm:h-40 mb-2 flex items-center justify-center"></div>
+
+      <!-- Celebration Heading -->
+      <h2 class="font-cursive text-4xl sm:text-[2.6rem] text-rose-500 leading-tight mb-2">
+        Yay!! It's a Date, Kartik Sir! 🎉💖
+      </h2>
+      <p class="text-rose-800/75 text-sm font-semibold mb-5">
+        Officially the highlight of Freshers' Party already 😌✨
+      </p>
+
+      <!-- Official Freshers' Party Date Pass VIP Ticket -->
+      <div class="date-ticket w-full rounded-2xl p-5 text-left mb-6">
+        <div class="ticket-notch-left"></div>
+        <div class="ticket-notch-right"></div>
+
+        <!-- Ticket Header -->
+        <div class="flex items-center justify-between border-b border-dashed border-pink-300 pb-3 mb-3">
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-pink-400 font-bold">VIP Access</p>
+            <h3 class="font-bold text-rose-600 text-base sm:text-lg leading-tight">Official Freshers' Party Date Pass</h3>
+          </div>
+          <span class="text-2xl" aria-hidden="true">🎟️</span>
+        </div>
+
+        <!-- Ticket Details -->
+        <div class="space-y-2.5 text-sm">
+          <div class="flex justify-between items-center gap-2">
+            <span class="text-rose-400 font-semibold">VIP Guest:</span>
+            <span class="text-rose-900 font-bold">Kartik Sir 👑</span>
+          </div>
+          <div class="flex justify-between items-center gap-2">
+            <span class="text-rose-400 font-semibold">Status:</span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-pink-100 text-rose-600 border border-pink-200">
+              VIP Date Confirmed 💖
+            </span>
+          </div>
+          <div class="flex justify-between items-center gap-2">
+            <span class="text-rose-400 font-semibold">Perks:</span>
+            <span class="text-rose-800 font-bold text-right text-xs sm:text-sm">Unlimited Hype, Cute Pics &amp; Best Vibes ✨</span>
+          </div>
+          <div class="pt-2 flex justify-center">
+            <span class="verified-stamp">
+              <span>🤙</span>
+              <span>Pinky Promise Verified ✓</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Ticket Footer Note -->
+        <div class="mt-4 pt-2.5 border-t border-dashed border-pink-300 text-center">
+          <p class="text-xs font-bold text-rose-500 tracking-wide">
+            Screenshot this ticket as official proof! 😉💌
+          </p>
+        </div>
+      </div>
+
+      <!-- Clean Replay Button -->
+      <button
+        id="replayBtn"
+        type="button"
+        class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-rose-400 hover:text-rose-600 hover:bg-pink-100/60 transition-colors cursor-pointer"
+      >
+        <span>↺</span>
+        <span>Replay Invite</span>
+      </button>
+    </section>
+
+  </main>
+
+  <script>
+    /**
+     * Freshers' Party Interactive Invite for Kartik Sir
+     * -------------------------------------------------------------------------
+     * 1. Ambient drifting pastel hearts & sparkles
+     * 2. Reactive SVG kawaii bunny (happy, excited, surprised, puppy, pleading,
+     *    flustered, starry, jumping, ecstatic)
+     * 3. 15-step dodging, shrinking & merging "No" button
+     * 4. Creative "Yes" button: magnetic pull, holographic sheen, orbiting
+     *    hover sparkles, evolving milestone copy, unlockable crown, speech pill
+     * 5. Playful 4-step "Yes" confirmation journey with 4-heart meter, shoo
+     *    toast, teaser confetti puff, rising Web Audio harp chimes & grand finale
+     * 6. VIP Date Pass with "Pinky Promise Verified ✓" stamp & full Replay reset
+     */
+
+    // --- DOM Elements ---
+    const bgFloaters = document.getElementById('bgFloaters');
+    const shooToast = document.getElementById('shooToast');
+    const promptView = document.getElementById('promptView');
+    const celebrationView = document.getElementById('celebrationView');
+    const bunnyWrapper = document.getElementById('bunnyWrapper');
+    const celebrationBunnySlot = document.getElementById('celebrationBunnySlot');
+    const kawaiiBunny = document.getElementById('kawaiiBunny');
+    const mainHeading = document.getElementById('mainHeading');
+    const subtitleText = document.getElementById('subtitleText');
+    const buttonContainer = document.getElementById('buttonContainer');
+
+    const yesMagneticWrap = document.getElementById('yesMagneticWrap');
+    const yesBtn = document.getElementById('yesBtn');
+    const yesBtnText = document.getElementById('yesBtnText');
+    const yesCrown = document.getElementById('yesCrown');
+    const yesSpeechPill = document.getElementById('yesSpeechPill');
+
+    const heartMeterWrap = document.getElementById('heartMeterWrap');
+    const heartMeterCaption = document.getElementById('heartMeterCaption');
+    const heartPips = [
+      document.getElementById('heartPip1'),
+      document.getElementById('heartPip2'),
+      document.getElementById('heartPip3'),
+      document.getElementById('heartPip4')
+    ];
+
+    const noBtn = document.getElementById('noBtn');
+    const replayBtn = document.getElementById('replayBtn');
+    const canvas = document.getElementById('celebrationCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // --- State Variables ---
+    const MAX_ATTEMPTS = 15;
+    let noAttempts = 0;
+    let yesStep = 0; // 0: initial invite, 1: Wait really?!, 2: Pinky promise?, 3: Lock it in!, 4: Finale
+    let isDetached = false;
+    let isMerged = false;
+    let isCelebrating = false;
+    let isHoveringYes = false;
+    let hoverSparkleInterval = null;
+    let speechPillTimer = null;
+    let toastTimer = null;
+    let pillMessageIndex = 0;
+    let confettiParticles = [];
+    let confettiAnimId = null;
+
+    // Rotating cute encouragements for the floating Yes speech pill (Step 0 hover)
+    const hoverPillMessages = [
+      "good choice, sir! 🥹",
+      "yay!! click it! ✨",
+      "best freshers ever 💃",
+      "10/10 senior energy 👑",
+      "pinky promise it'll be fun 🎀"
+    ];
+
+    // Evolving Yes Button Milestones based on No attempts (Step 0)
+    const yesMilestones = [
+      { minAttempts: 0,  label: "Yes! 💖" },
+      { minAttempts: 2,  label: "Yes, obviously ✨" },
+      { minAttempts: 5,  label: "Best decision ever 👑" },
+      { minAttempts: 8,  label: "Say yes, Kartik Sir 🥺" },
+      { minAttempts: 11, label: "Coolest senior move 🏆" },
+      { minAttempts: 13, label: "Destiny says YES 💘" },
+      { minAttempts: 15, label: "Just click me already! 💖" }
+    ];
+
+    // 15 polite-cheeky prompts for the dodging "No" button & teasing subtitles
+    const noStageData = [
+      { btn: "Are you sure, Kartik Sir?", sub: "Wait... did you just try to press No?! 😳" },
+      { btn: "Really, Sir?? 🥺", sub: "Think about how iconic our Freshers' Party photos will be! 📸" },
+      { btn: "Think again!", sub: "A cool senior saying no to a sweet fresher? Impossible! ✨" },
+      { btn: "Don't break a fresher's heart!", sub: "Look at the bunny... you're making it sad 🥺💔" },
+      { btn: "Pretty please, Sir?", sub: "I'll even let you pick the songs on the dance floor 🎶" },
+      { btn: "Nice try! 🤭", sub: "Haha, you'll have to be faster than that, Kartik Sir!" },
+      { btn: "Still dodging...", sub: "Notice how 'Yes' just unlocked a crown? Royalty vibes 👑" },
+      { btn: "You can't say no!", sub: "That shiny 'Yes' button is practically calling your name 💖" },
+      { btn: "Kartik Sir, pls! 😭", sub: "Okay now you're just testing how tiny 'No' can get..." },
+      { btn: "Almost gone...", sub: "Your resistance is adorable, Sir, but it's not working ✨" },
+      { btn: "Just click Yes already!", sub: "Why chase a tiny button when 'Yes' is glowing right there?! 😌" },
+      { btn: "Resistance is futile ✨", sub: "Even the universe voted YES for Freshers' Party!" },
+      { btn: "Last few chances...", sub: "Careful... the 'No' button is running out of energy! 👀" },
+      { btn: "Bye bye No button...", sub: "One more tap and 'No' officially surrenders! 💨" },
+      { btn: "Poof! 💖", sub: "Looks like 'No' gave up and joined team Yes! 😌💖" }
+    ];
+
+    // =========================================================================
+    // 1. AMBIENT FLOATING HEARTS & SPARKLES BACKGROUND
+    // =========================================================================
+    function initFloatingBackground() {
+      const symbols = ['💖', '✨', '🌸', '💗', '🤍', '🫧', '💕'];
+      const totalItems = 18;
+      bgFloaters.innerHTML = '';
+
+      for (let i = 0; i < totalItems; i++) {
+        const el = document.createElement('span');
+        el.className = 'floating-item';
+        el.textContent = symbols[i % symbols.length];
+
+        const left = Math.random() * 96 + 2;
+        const size = Math.random() * 14 + 14;
+        const duration = Math.random() * 9 + 10;
+        const delay = Math.random() * -16;
+
+        el.style.left = `${left}vw`;
+        el.style.fontSize = `${size}px`;
+        el.style.animationDuration = `${duration}s`;
+        el.style.animationDelay = `${delay}s`;
+
+        bgFloaters.appendChild(el);
+      }
+    }
+
+    // =========================================================================
+    // 2. KAWAII BUNNY EXPRESSION STATE MACHINE
+    // =========================================================================
+    function getBaseBunnyExpression() {
+      if (isCelebrating) return 'ecstatic';
+      if (yesStep === 1) return 'flustered';
+      if (yesStep === 2) return 'starry';
+      if (yesStep === 3) return 'jumping';
+      if (noAttempts === 0) return 'happy';
+      if (noAttempts <= 3) return 'surprised';
+      if (noAttempts <= 8) return 'puppy';
+      return 'pleading';
+    }
+
+    function setBunnyExpression(mode) {
+      const expressions = [
+        'happy', 'excited', 'surprised', 'puppy', 'pleading',
+        'flustered', 'starry', 'jumping', 'ecstatic'
+      ];
+      expressions.forEach((expr) => {
+        const group = document.getElementById(`expr-${expr}`);
+        if (group) {
+          group.classList.toggle('hidden', expr !== mode);
+        }
+      });
+
+      // Sparkle aura on Yes hover, all Yes steps, and ecstatic celebration
+      const aura = document.getElementById('expr-hearts-aura');
+      if (aura) {
+        const showAura = ['excited', 'flustered', 'starry', 'jumping', 'ecstatic'].includes(mode);
+        aura.classList.toggle('hidden', !showAura);
+      }
+
+      // Cheek styles
+      const normalCheeks = document.getElementById('normalCheeks');
+      const heartCheeks = document.getElementById('heartCheeks');
+      if (mode === 'excited' || mode === 'jumping') {
+        normalCheeks.classList.add('hidden');
+        heartCheeks.classList.remove('hidden');
+      } else if (mode === 'flustered') {
+        // Flustered group renders its own deep blush streaks
+        normalCheeks.classList.add('hidden');
+        heartCheeks.classList.add('hidden');
+      } else {
+        normalCheeks.classList.remove('hidden');
+        heartCheeks.classList.add('hidden');
+        const cheekOpacity = ['pleading', 'ecstatic', 'starry'].includes(mode) ? '0.92' : '0.65';
+        document.getElementById('cheekLeft').setAttribute('opacity', cheekOpacity);
+        document.getElementById('cheekRight').setAttribute('opacity', cheekOpacity);
+      }
+
+      // Wrapper pose animation
+      bunnyWrapper.classList.remove('bunny-idle', 'bunny-excited', 'bunny-jumping', 'bunny-ecstatic');
+      if (mode === 'ecstatic') {
+        bunnyWrapper.classList.add('bunny-ecstatic');
+      } else if (mode === 'jumping') {
+        bunnyWrapper.classList.add('bunny-jumping');
+      } else if (mode === 'excited' || mode === 'starry') {
+        bunnyWrapper.classList.add('bunny-excited');
+      } else {
+        bunnyWrapper.classList.add('bunny-idle');
+      }
+    }
+
+    function triggerBunnyShake() {
+      kawaiiBunny.classList.remove('bunny-shake');
+      void kawaiiBunny.offsetWidth;
+      kawaiiBunny.classList.add('bunny-shake');
+    }
+
+    // =========================================================================
+    // 3. WEB AUDIO API: RISING PASTEL HARP CHIMES & GRAND FINALE ARPEGGIO
+    // =========================================================================
+    function playToneSequence(notes, stepDelay = 0.065, volume = 0.1) {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+
+        const audioCtx = new AudioCtx();
+        const now = audioCtx.currentTime;
+
+        notes.forEach((freq, idx) => {
+          const startTime = now + idx * stepDelay;
+
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, startTime);
+
+          const shimmerOsc = audioCtx.createOscillator();
+          const shimmerGain = audioCtx.createGain();
+          shimmerOsc.type = 'triangle';
+          shimmerOsc.frequency.setValueAtTime(freq * 2, startTime);
+
+          gain.gain.setValueAtTime(0.0001, startTime);
+          gain.gain.exponentialRampToValueAtTime(volume, startTime + 0.018);
+          gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.55);
+
+          shimmerGain.gain.setValueAtTime(0.0001, startTime);
+          shimmerGain.gain.exponentialRampToValueAtTime(volume * 0.25, startTime + 0.015);
+          shimmerGain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.34);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          shimmerOsc.connect(shimmerGain);
+          shimmerGain.connect(audioCtx.destination);
+
+          osc.start(startTime);
+          osc.stop(startTime + 0.6);
+          shimmerOsc.start(startTime);
+          shimmerOsc.stop(startTime + 0.38);
+        });
+
+        setTimeout(() => {
+          if (audioCtx.state !== 'closed') {
+            audioCtx.close().catch(() => {});
+          }
+        }, Math.max(950, notes.length * stepDelay * 1000 + 700));
+      } catch (err) {
+        // Gracefully ignore if browser audio autoplay policy blocks sound
+      }
+    }
+
+    function playStepChime(step) {
+      if (step === 1) {
+        // Gentle rising C5 -> E5 -> G5
+        playToneSequence([523.25, 659.25, 783.99], 0.055, 0.095);
+      } else if (step === 2) {
+        // Higher D5 -> F#5 -> A5
+        playToneSequence([587.33, 739.99, 880.0], 0.052, 0.1);
+      } else if (step === 3) {
+        // Brighter E5 -> G#5 -> B5 -> E6
+        playToneSequence([659.25, 830.61, 987.77, 1318.51], 0.048, 0.105);
+      } else {
+        // Grand Finale ascending pastel Cmaj9 harp arpeggio
+        playToneSequence([523.25, 659.25, 783.99, 987.77, 1174.66, 1318.51, 1567.98], 0.06, 0.115);
+      }
+    }
+
+    // =========================================================================
+    // 4. CREATIVE "YES" BUTTON: MAGNETIC PULL, HOVER SPARKLES & SPEECH PILL
+    // =========================================================================
+    function handleMagneticMove(e) {
+      if (isCelebrating || e.pointerType === 'touch') return;
+
+      const rect = yesMagneticWrap.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
+      const distance = Math.hypot(dx, dy);
+
+      const magneticRadius = 155;
+
+      if (distance < magneticRadius) {
+        const pullStrength = (1 - distance / magneticRadius) * 0.24;
+        const moveX = Math.max(-18, Math.min(18, dx * pullStrength));
+        const moveY = Math.max(-14, Math.min(14, dy * pullStrength));
+        const tilt = Math.max(-4, Math.min(4, (moveX / 18) * 3.5));
+
+        yesMagneticWrap.style.setProperty('--mag-x', `${moveX.toFixed(1)}px`);
+        yesMagneticWrap.style.setProperty('--mag-y', `${moveY.toFixed(1)}px`);
+        yesMagneticWrap.style.setProperty('--mag-rot', `${tilt.toFixed(2)}deg`);
+      } else {
+        resetMagneticPosition();
+      }
+    }
+
+    function resetMagneticPosition() {
+      yesMagneticWrap.style.setProperty('--mag-x', '0px');
+      yesMagneticWrap.style.setProperty('--mag-y', '0px');
+      yesMagneticWrap.style.setProperty('--mag-rot', '0deg');
+    }
+
+    function spawnOrbitSparkle() {
+      if (!isHoveringYes || isCelebrating) return;
+      const rect = yesBtn.getBoundingClientRect();
+      const icons = ['✨', '💖', '⭐', '🌸', '💗', '💫'];
+
+      const sparkle = document.createElement('span');
+      sparkle.className = 'orbit-sparkle';
+      sparkle.textContent = icons[Math.floor(Math.random() * icons.length)];
+
+      const edge = Math.floor(Math.random() * 4);
+      let startX = rect.left + Math.random() * rect.width;
+      let startY = rect.top + Math.random() * rect.height;
+
+      if (edge === 0) startY = rect.top - 2;
+      else if (edge === 1) startY = rect.bottom + 2;
+      else if (edge === 2) startX = rect.left - 2;
+      else startX = rect.right + 2;
+
+      const driftX = (startX - (rect.left + rect.width / 2)) * 0.45 + (Math.random() - 0.5) * 26;
+      const driftY = -18 - Math.random() * 24;
+
+      sparkle.style.left = `${startX}px`;
+      sparkle.style.top = `${startY}px`;
+      sparkle.style.setProperty('--sx', `${driftX.toFixed(1)}px`);
+      sparkle.style.setProperty('--sy', `${driftY.toFixed(1)}px`);
+
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 980);
+    }
+
+    function showSpeechPill(text, autoHideMs = 0) {
+      if (speechPillTimer) {
+        clearTimeout(speechPillTimer);
+        speechPillTimer = null;
+      }
+      yesSpeechPill.textContent = text;
+      yesSpeechPill.classList.add('visible');
+
+      if (autoHideMs > 0) {
+        speechPillTimer = setTimeout(() => {
+          if (!isHoveringYes && yesStep === 0) {
+            yesSpeechPill.classList.remove('visible');
+          }
+        }, autoHideMs);
+      }
+    }
+
+    function hideSpeechPill() {
+      if (speechPillTimer) {
+        clearTimeout(speechPillTimer);
+        speechPillTimer = null;
+      }
+      yesSpeechPill.classList.remove('visible');
+    }
+
+    function showShooToast(message) {
+      if (toastTimer) clearTimeout(toastTimer);
+      shooToast.textContent = message;
+      shooToast.classList.add('show');
+      toastTimer = setTimeout(() => {
+        shooToast.classList.remove('show');
+      }, 2600);
+    }
+
+    function updateYesButtonLevel(attempts) {
+      let currentLabel = yesMilestones[0].label;
+      for (const m of yesMilestones) {
+        if (attempts >= m.minAttempts) {
+          currentLabel = m.label;
+        }
+      }
+      yesBtnText.textContent = currentLabel;
+
+      const yesScale = Math.min(1 + attempts * 0.023, 1.32);
+      yesMagneticWrap.style.setProperty('--yes-scale', yesScale.toFixed(3));
+
+      yesBtn.classList.remove('level-mid', 'level-max');
+      if (attempts >= 11) {
+        yesBtn.classList.add('level-max');
+      } else if (attempts >= 5) {
+        yesBtn.classList.add('level-mid');
+      }
+
+      const glowSpread = 26 + attempts * 2.2;
+      yesBtn.style.boxShadow = `0 12px ${glowSpread}px -3px rgba(244, 63, 94, 0.72), 0 0 ${14 + attempts * 1.6}px rgba(244, 114, 182, 0.62)`;
+
+      if (attempts >= 5) {
+        yesCrown.classList.add('unlocked');
+      } else {
+        yesCrown.classList.remove('unlocked');
+      }
+    }
+
+    function createYesBurst(options = {}) {
+      const { includeShockwave = false, grandShockwave = false, count = 16, icons = ['💖', '✨', '💗', '⭐', '🌸', '💕'] } = options;
+      const rect = yesBtn.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      if (includeShockwave) {
+        const ring = document.createElement('div');
+        ring.className = grandShockwave ? 'shockwave-ring grand' : 'shockwave-ring';
+        ring.style.left = `${centerX}px`;
+        ring.style.top = `${centerY}px`;
+        document.body.appendChild(ring);
+        setTimeout(() => ring.remove(), grandShockwave ? 900 : 720);
+      }
+
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement('span');
+        particle.className = 'burst-particle';
+        particle.textContent = icons[i % icons.length];
+
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.35;
+        const distance = (grandShockwave ? 85 : 52) + Math.random() * 62;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        const rot = `${(Math.random() - 0.5) * 120}deg`;
+
+        particle.style.left = `${centerX}px`;
+        particle.style.top = `${centerY}px`;
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        particle.style.setProperty('--rot', rot);
+
+        document.body.appendChild(particle);
+        setTimeout(() => particle.remove(), 900);
+      }
+    }
+
+    // =========================================================================
+    // 5. 15-STEP DODGING, SHRINKING & MERGING "NO" BUTTON
+    // =========================================================================
+    function getSafeRandomPosition(btnWidth, btnHeight, scale) {
+      const margin = 16;
+      const effectiveW = Math.max(btnWidth * scale, 64);
+      const effectiveH = Math.max(btnHeight * scale, 36);
+
+      const minX = margin;
+      const maxX = Math.max(margin, window.innerWidth - effectiveW - margin);
+      const minY = margin;
+      const maxY = Math.max(margin, window.innerHeight - effectiveH - margin);
+
+      const yesRect = yesBtn.getBoundingClientRect();
+      let chosenX = minX;
+      let chosenY = minY;
+
+      // Try up to 14 candidate spots to avoid landing directly on top of Yes
+      for (let attempt = 0; attempt < 14; attempt++) {
+        const rx = minX + Math.random() * (maxX - minX);
+        const ry = minY + Math.random() * (maxY - minY);
+
+        const overlapsYes =
+          rx < yesRect.right + 16 &&
+          rx + effectiveW > yesRect.left - 16 &&
+          ry < yesRect.bottom + 16 &&
+          ry + effectiveH > yesRect.top - 16;
+
+        chosenX = rx;
+        chosenY = ry;
+        if (!overlapsYes) break;
+      }
+
+      return { x: chosenX, y: chosenY };
+    }
+
+    function handleNoPress(e) {
+      if (isMerged || isCelebrating || yesStep > 0) return;
+      if (e) e.preventDefault();
+
+      noAttempts += 1;
+      const stageIdx = Math.min(noAttempts - 1, noStageData.length - 1);
+      const stage = noStageData[stageIdx];
+
+      // Update subtitle, bunny expression & Yes button level
+      subtitleText.textContent = stage.sub;
+      setBunnyExpression(getBaseBunnyExpression());
+      triggerBunnyShake();
+      updateYesButtonLevel(noAttempts);
+
+      // Briefly point Kartik Sir toward the glowing Yes button
+      if (noAttempts < MAX_ATTEMPTS) {
+        showSpeechPill('over here!! 👉💖', 1500);
+      }
+
+      // Detach No button to fixed positioning on first press for smooth viewport dodging
+      if (!isDetached) {
+        const rect = noBtn.getBoundingClientRect();
+        document.body.appendChild(noBtn);
+        noBtn.style.position = 'fixed';
+        noBtn.style.left = `${rect.left}px`;
+        noBtn.style.top = `${rect.top}px`;
+        noBtn.style.margin = '0';
+        noBtn.style.zIndex = '45';
+        isDetached = true;
+        void noBtn.offsetWidth; // Force layout flush before transitioning
+      }
+
+      // 15th Attempt: Fly into the center of Yes and vanish with sparkle burst!
+      if (noAttempts >= MAX_ATTEMPTS) {
+        isMerged = true;
+        noBtn.textContent = stage.btn;
+        noBtn.classList.add('merging');
+
+        const yesRect = yesBtn.getBoundingClientRect();
+        const targetX = yesRect.left + yesRect.width / 2 - noBtn.offsetWidth / 2;
+        const targetY = yesRect.top + yesRect.height / 2 - noBtn.offsetHeight / 2;
+
+        noBtn.style.left = `${targetX}px`;
+        noBtn.style.top = `${targetY}px`;
+        noBtn.style.transform = 'scale(0.1) rotate(360deg)';
+        noBtn.style.opacity = '0';
+
+        setTimeout(() => {
+          noBtn.style.display = 'none';
+          yesBtn.classList.remove('absorb-shimmer');
+          void yesBtn.offsetWidth;
+          yesBtn.classList.add('absorb-shimmer');
+          createYesBurst({ includeShockwave: true, count: 20 });
+          playStepChime(1);
+          showSpeechPill('no resistance left! 😌💖', 2400);
+        }, 560);
+        return;
+      }
+
+      // Attempts 1-14: Shrink and jump to a safe random spot
+      noBtn.textContent = stage.btn;
+      const noScale = Math.max(0.44, 1 - noAttempts * 0.04);
+      const { x, y } = getSafeRandomPosition(noBtn.offsetWidth, noBtn.offsetHeight, noScale);
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+      noBtn.style.transform = `scale(${noScale.toFixed(2)})`;
+    }
+
+    // =========================================================================
+    // 6. FULL-SCREEN PASTEL CONFETTI & HEARTS CANVAS (TEASER PUFF + FINALE)
+    // =========================================================================
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawMiniHeart(c, x, y, size, color, rotation, alpha) {
+      c.save();
+      c.translate(x, y);
+      c.rotate(rotation);
+      c.globalAlpha = Math.max(0, alpha);
+      c.fillStyle = color;
+      c.beginPath();
+      const topCurveHeight = size * 0.3;
+      c.moveTo(0, topCurveHeight);
+      c.bezierCurveTo(0, 0, -size / 2, 0, -size / 2, topCurveHeight);
+      c.bezierCurveTo(-size / 2, (size + topCurveHeight) / 2, 0, (size + topCurveHeight) / 1.3, 0, size);
+      c.bezierCurveTo(0, (size + topCurveHeight) / 1.3, size / 2, (size + topCurveHeight) / 2, size / 2, topCurveHeight);
+      c.bezierCurveTo(size / 2, 0, 0, 0, 0, topCurveHeight);
+      c.closePath();
+      c.fill();
+      c.restore();
+    }
+
+    function startConfettiLoop() {
+      if (confettiAnimId) return;
+
+      function animateConfetti() {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        for (let i = confettiParticles.length - 1; i >= 0; i--) {
+          const p = confettiParticles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += p.gravity;
+          p.vx *= 0.99;
+          p.rot += p.vRot;
+          p.life -= p.decay;
+
+          if (p.life <= 0 || p.y > window.innerHeight + 60) {
+            confettiParticles.splice(i, 1);
+            continue;
+          }
+
+          if (p.shape === 'heart') {
+            drawMiniHeart(ctx, p.x, p.y, p.size, p.color, p.rot, Math.min(1, p.life));
+          } else {
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.globalAlpha = Math.min(1, p.life);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size / 2, -p.size * 0.35, p.size, p.size * 0.7);
+            ctx.restore();
+          }
+        }
+
+        if (confettiParticles.length > 0) {
+          confettiAnimId = requestAnimationFrame(animateConfetti);
+        } else {
+          confettiAnimId = null;
+        }
+      }
+
+      confettiAnimId = requestAnimationFrame(animateConfetti);
+    }
+
+    // Small teaser puff of pastel confetti launched from the Yes button on Click 3
+    function launchTeaserConfettiPuff() {
+      const rect = yesBtn.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+      const colors = ['#f472b6', '#fb7185', '#fbbf24', '#c084fc', '#f9a8d4', '#fde68a'];
+
+      for (let i = 0; i < 36; i++) {
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.9;
+        const speed = 3.5 + Math.random() * 6.5;
+        confettiParticles.push({
+          x: originX,
+          y: originY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 1.5,
+          gravity: 0.17,
+          size: 7 + Math.random() * 7,
+          color: colors[i % colors.length],
+          shape: i % 3 === 0 ? 'heart' : 'rect',
+          rot: Math.random() * Math.PI * 2,
+          vRot: (Math.random() - 0.5) * 0.22,
+          life: 1.0,
+          decay: 0.018 + Math.random() * 0.01
+        });
+      }
+
+      startConfettiLoop();
+    }
+
+    // Full-screen pastel confetti & hearts explosion for Click 4 Grand Finale
+    function launchCelebrationConfetti() {
+      const colors = ['#f472b6', '#fb7185', '#f43f5e', '#fbbf24', '#c084fc', '#fda4af', '#f9a8d4', '#a78bfa'];
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      // Center burst + twin side cannons
+      const origins = [
+        { x: w * 0.5, y: h * 0.48, count: 95, spread: Math.PI * 2, baseAngle: 0 },
+        { x: w * 0.12, y: h * 0.72, count: 45, spread: 1.1, baseAngle: -Math.PI / 3 },
+        { x: w * 0.88, y: h * 0.72, count: 45, spread: 1.1, baseAngle: (-2 * Math.PI) / 3 }
+      ];
+
+      origins.forEach((origin) => {
+        for (let i = 0; i < origin.count; i++) {
+          const angle = origin.baseAngle + (Math.random() - 0.5) * origin.spread;
+          const speed = 4 + Math.random() * 10.5;
+          confettiParticles.push({
+            x: origin.x,
+            y: origin.y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - (origin.spread > 3 ? 2.5 : 4.5),
+            gravity: 0.14 + Math.random() * 0.06,
+            size: 8 + Math.random() * 9,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            shape: Math.random() < 0.42 ? 'heart' : 'rect',
+            rot: Math.random() * Math.PI * 2,
+            vRot: (Math.random() - 0.5) * 0.2,
+            life: 1.35 + Math.random() * 0.5,
+            decay: 0.0085 + Math.random() * 0.006
+          });
+        }
+      });
+
+      startConfettiLoop();
+    }
+
+    // =========================================================================
+    // 7. PLAYFUL 4-STEP "YES" CONFIRMATION JOURNEY & FULL REPLAY RESET
+    // =========================================================================
+    function updateHeartMeter(filledCount) {
+      heartMeterWrap.classList.remove('hidden');
+      heartMeterWrap.classList.add('flex');
+
+      heartPips.forEach((pip, idx) => {
+        const shouldFill = idx < filledCount;
+        const alreadyFilled = pip.textContent === '💖';
+        pip.textContent = shouldFill ? '💖' : '🤍';
+
+        if (shouldFill && !alreadyFilled) {
+          pip.classList.remove('filled');
+          void pip.offsetWidth;
+          pip.classList.add('filled');
+        } else if (!shouldFill) {
+          pip.classList.remove('filled');
+        }
+      });
+
+      if (filledCount < 4) {
+        heartMeterCaption.textContent = `Confirmation Meter: ${filledCount} / 4 💖`;
+      } else {
+        heartMeterCaption.textContent = `4 / 4 — OFFICIALLY CONFIRMED!! 🎉💖`;
+      }
+    }
+
+    function shooAwayNoButtonIfVisible() {
+      if (noBtn.style.display === 'none' || isMerged) return;
+      noBtn.classList.add('shooed');
+      showShooToast('too late to back out now! 🤭💨');
+      setTimeout(() => {
+        noBtn.style.display = 'none';
+      }, 460);
+    }
+
+    function triggerYesAnimationClass(cls) {
+      yesBtn.classList.remove('bouncy-pop', 'playful-jiggle', 'squish-press', 'absorb-shimmer');
+      void yesBtn.offsetWidth;
+      yesBtn.classList.add(cls);
+    }
+
+    function handleYesClick() {
+      if (isCelebrating) return;
+
+      // CLICK 1 -> STEP 2 ("Wait, really?! 😳")
+      if (yesStep === 0) {
+        yesStep = 1;
+        shooAwayNoButtonIfVisible();
+
+        yesMagneticWrap.style.setProperty('--yes-scale', '1.08');
+        yesMagneticWrap.classList.add('halo-boost');
+        yesBtnText.textContent = 'Wait, really?! 😳';
+        subtitleText.textContent = 'My heart just did a literal backflip, Kartik Sir!! 💓';
+
+        triggerYesAnimationClass('bouncy-pop');
+        showSpeechPill("don't play with my heart, sir 🥺", 0);
+        setBunnyExpression('flustered');
+        triggerBunnyShake();
+        updateHeartMeter(1);
+
+        createYesBurst({ includeShockwave: false, count: 14, icons: ['💖', '💗', '✨', '😳', '💕'] });
+        playStepChime(1);
+        return;
+      }
+
+      // CLICK 2 -> STEP 3 ("Pinky promise? 🤙✨")
+      if (yesStep === 1) {
+        yesStep = 2;
+
+        yesMagneticWrap.style.setProperty('--yes-scale', '1.12');
+        yesBtn.classList.add('level-mid');
+        yesBtnText.textContent = 'Pinky promise? 🤙✨';
+        subtitleText.textContent = 'Swear on the Freshers’ Party DJ & dance floor! 🎶✨';
+
+        triggerYesAnimationClass('playful-jiggle');
+        showSpeechPill('no take-backs allowed! 😤💖', 0);
+        setBunnyExpression('starry');
+        triggerBunnyShake();
+        updateHeartMeter(2);
+
+        createYesBurst({ includeShockwave: true, count: 18, icons: ['✨', '⭐', '💖', '🤙', '💫'] });
+        playStepChime(2);
+        return;
+      }
+
+      // CLICK 3 -> STEP 4 ("Lock it in, Kartik Sir! 💘")
+      if (yesStep === 2) {
+        yesStep = 3;
+
+        yesMagneticWrap.style.setProperty('--yes-scale', '1.16');
+        yesBtn.classList.add('level-max', 'rose-gold-pulse');
+        yesCrown.classList.add('unlocked');
+        yesBtnText.textContent = 'Lock it in, Kartik Sir! 💘';
+        subtitleText.textContent = 'VIP Date Pass is literally printing right now... 🎟️✨';
+
+        showSpeechPill('one last tap to make it official 👑', 0);
+        setBunnyExpression('jumping');
+        updateHeartMeter(3);
+
+        launchTeaserConfettiPuff();
+        createYesBurst({ includeShockwave: true, count: 20, icons: ['👑', '💘', '✨', '🌸', '💖'] });
+        playStepChime(3);
+        return;
+      }
+
+      // CLICK 4 -> GRAND FINALE!
+      if (yesStep === 3) {
+        yesStep = 4;
+        isCelebrating = true;
+        isHoveringYes = false;
+
+        if (hoverSparkleInterval) {
+          clearInterval(hoverSparkleInterval);
+          hoverSparkleInterval = null;
+        }
+
+        updateHeartMeter(4);
+        hideSpeechPill();
+        yesBtn.classList.remove('rose-gold-pulse');
+        triggerYesAnimationClass('squish-press');
+
+        // Huge tactile shockwave ring, burst & full ascending pastel harp arpeggio
+        createYesBurst({
+          includeShockwave: true,
+          grandShockwave: true,
+          count: 28,
+          icons: ['💖', '✨', '👑', '🎉', '💘', '🌸', '⭐', '💕']
+        });
+        playStepChime(4);
+
+        // Reveal the Official Freshers' Party Date Pass & launch full-screen confetti
+        setTimeout(() => {
+          setBunnyExpression('ecstatic');
+          celebrationBunnySlot.appendChild(bunnyWrapper);
+
+          promptView.classList.add('hidden');
+          celebrationView.classList.remove('hidden');
+          celebrationView.classList.add('flex');
+
+          launchCelebrationConfetti();
+        }, 440);
+      }
+    }
+
+    function handleReplay() {
+      // Clear confetti animation & canvas
+      if (confettiAnimId) {
+        cancelAnimationFrame(confettiAnimId);
+        confettiAnimId = null;
+      }
+      confettiParticles = [];
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      // Reset all state flags
+      noAttempts = 0;
+      yesStep = 0;
+      isDetached = false;
+      isMerged = false;
+      isCelebrating = false;
+      isHoveringYes = false;
+      if (hoverSparkleInterval) {
+        clearInterval(hoverSparkleInterval);
+        hoverSparkleInterval = null;
+      }
+
+      // Hide toast & 4-heart progress meter
+      shooToast.classList.remove('show');
+      heartMeterWrap.classList.add('hidden');
+      heartMeterWrap.classList.remove('flex');
+      heartPips.forEach((pip) => {
+        pip.textContent = '🤍';
+        pip.classList.remove('filled');
+      });
+
+      // Reset bunny to happy & return to prompt view
+      setBunnyExpression('happy');
+      promptView.insertBefore(bunnyWrapper, mainHeading);
+
+      // Reset copy
+      mainHeading.textContent = "Will you be my Freshers' Party date, Kartik Sir? ✨";
+      subtitleText.textContent = "I promise unlimited hype, great music & the best company 💖";
+
+      // Reset Yes button, magnetic wrapper, crown & tooltip
+      resetMagneticPosition();
+      yesMagneticWrap.style.setProperty('--yes-scale', '1');
+      yesMagneticWrap.classList.remove('halo-boost');
+      yesBtn.classList.remove(
+        'level-mid', 'level-max', 'rose-gold-pulse',
+        'bouncy-pop', 'playful-jiggle', 'squish-press', 'absorb-shimmer'
+      );
+      yesBtn.style.boxShadow = '';
+      yesBtnText.textContent = yesMilestones[0].label;
+      yesCrown.classList.remove('unlocked');
+      hideSpeechPill();
+
+      // Restore No button inside buttonContainer
+      noBtn.classList.remove('merging', 'shooed');
+      noBtn.style.position = '';
+      noBtn.style.left = '';
+      noBtn.style.top = '';
+      noBtn.style.margin = '';
+      noBtn.style.transform = '';
+      noBtn.style.opacity = '';
+      noBtn.style.display = '';
+      noBtn.style.zIndex = '';
+      noBtn.textContent = 'No';
+      buttonContainer.appendChild(noBtn);
+
+      // Switch back to prompt view
+      celebrationView.classList.add('hidden');
+      celebrationView.classList.remove('flex');
+      promptView.classList.remove('hidden');
+    }
+
+    // =========================================================================
+    // 8. EVENT LISTENERS & INITIALIZATION
+    // =========================================================================
+    window.addEventListener('pointermove', handleMagneticMove);
+    document.addEventListener('pointerleave', resetMagneticPosition);
+
+    yesBtn.addEventListener('pointerenter', (e) => {
+      if (isCelebrating || e.pointerType === 'touch') return;
+      isHoveringYes = true;
+
+      // Only override expression & speech pill on Step 0 (Steps 1-3 have their own dedicated states)
+      if (yesStep === 0) {
+        setBunnyExpression('excited');
+        const msg = hoverPillMessages[pillMessageIndex % hoverPillMessages.length];
+        pillMessageIndex += 1;
+        showSpeechPill(msg, 0);
+      }
+
+      spawnOrbitSparkle();
+      if (!hoverSparkleInterval) {
+        hoverSparkleInterval = setInterval(spawnOrbitSparkle, 240);
+      }
+    });
+
+    yesBtn.addEventListener('pointerleave', () => {
+      isHoveringYes = false;
+      if (hoverSparkleInterval) {
+        clearInterval(hoverSparkleInterval);
+        hoverSparkleInterval = null;
+      }
+
+      if (yesStep === 0) {
+        hideSpeechPill();
+      }
+
+      if (!isCelebrating) {
+        setBunnyExpression(getBaseBunnyExpression());
+      }
+    });
+
+    noBtn.addEventListener('click', handleNoPress);
+    yesBtn.addEventListener('click', handleYesClick);
+    replayBtn.addEventListener('click', handleReplay);
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      if (isDetached && !isMerged && yesStep === 0 && noBtn.style.display !== 'none') {
+        const noScale = Math.max(0.44, 1 - noAttempts * 0.04);
+        const { x, y } = getSafeRandomPosition(noBtn.offsetWidth, noBtn.offsetHeight, noScale);
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+      }
+    });
+
+    window.addEventListener('load', () => {
+      initFloatingBackground();
+      resizeCanvas();
+      setBunnyExpression('happy');
+    });
+  </script>
+</body>
+</html>
+```
